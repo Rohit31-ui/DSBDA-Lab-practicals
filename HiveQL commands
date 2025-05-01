@@ -1,0 +1,42 @@
+hive
+
+show databases;  #to see databases
+create database db;
+use db;
+
+drop database db;
+
+create database test;
+use test;
+create table student(
+stu_id int,
+stu_name varcahr(10),
+marks int);
+
+alter table student add columns (city varchar(10));
+alter table student rename to employee;
+
+drop table student;
+
+load data local inpath 'path/to/employee.txt' into table employee;
+
+create external table logs(
+user_id int,
+user_name varchar(10)) row format delimited
+fields terminated by '\t
+stored as textfile
+location '/external path'
+
+
+create table table1(
+empId int,
+emp_name varchar(10),
+salary int);
+
+create table table2(
+empId int,
+dept varchar(10));
+
+
+
+
