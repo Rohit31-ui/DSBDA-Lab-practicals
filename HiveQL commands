@@ -8,10 +8,14 @@ drop database db;
 
 create database test;
 use test;
-create table student(
-stu_id int,
-stu_name varcahr(10),
-marks int);
+CREATE TABLE employee (
+  id INT,
+  name STRING,
+  salary FLOAT
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
 
 alter table student add columns (city varchar(10));
 alter table student rename to employee;
@@ -36,6 +40,20 @@ salary int);
 create table table2(
 empId int,
 dept varchar(10));
+
+
+
+CREATE EXTERNAL TABLE IF NOT EXISTS logs (
+  userId INT,
+  userName VARCHAR(16)
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE
+LOCATION 'hdfs://quickstart.cloudera:8020/user/cloudera/logs/extra';
+
+
 
 
 
